@@ -22,6 +22,4 @@ public class Vacancy {
 
     @OneToMany(mappedBy = "vacancy", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Employment> employment = new ArrayList<>();
-
-
 }
