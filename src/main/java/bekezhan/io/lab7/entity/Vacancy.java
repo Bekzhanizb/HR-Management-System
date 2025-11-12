@@ -3,8 +3,8 @@ package bekezhan.io.lab7.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -14,12 +14,14 @@ public class Vacancy {
     private Long id;
 
     private String title;
-    private double salary;
+    private int salary;
     private boolean open = true;
 
-    @OneToMany(mappedBy = "vacancy", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Application> applications = new ArrayList<>();
-
-    @OneToMany(mappedBy = "vacancy", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Employment> employment = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "applications",
+            joinColumns = @JoinColumn(name = "vacancy_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> applications = new HashSet<>();
 }
