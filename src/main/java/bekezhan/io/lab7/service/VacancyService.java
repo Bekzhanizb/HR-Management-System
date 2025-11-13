@@ -3,13 +3,15 @@ package bekezhan.io.lab7.service;
 import bekezhan.io.lab7.entity.Vacancy;
 import bekezhan.io.lab7.repository.VacancyRepo;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class VacancyService {
-    private VacancyRepo vacancyRepo;
+    private final VacancyRepo vacancyRepo;
 
     public List<Vacancy> findAll() {
         return vacancyRepo.findAll();
