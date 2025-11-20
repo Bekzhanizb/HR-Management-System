@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("User not found"));
 
-        if (dto.getUsername() != null) user.setUsername(dto.getUsername());
+        if (dto.getName() != null) user.setUsername(dto.getName());
         if (dto.getAge() > 0) user.setAge(dto.getAge());
         if (dto.getRole() != null) user.setRole(dto.getRole());
         if (dto.getPassword() != null) user.setPassword(dto.getPassword());

@@ -38,7 +38,7 @@ public class UserController {
             @RequestParam String password
     ) {
         UserDTO dto = new UserDTO();
-        dto.setUsername(username);
+        dto.setName(username);
         dto.setAge(age);
         dto.setRole(role);
         dto.setPassword(password);
@@ -71,7 +71,7 @@ public class UserController {
             @RequestParam(required = false) String password
     ) {
         UserDTO dto = new UserDTO();
-        if (username != null) dto.setUsername(username);
+        if (username != null) dto.setName(username);
         if (age != null) dto.setAge(age);
         if (role != null) dto.setRole(role);
         if (password != null) dto.setPassword(password);

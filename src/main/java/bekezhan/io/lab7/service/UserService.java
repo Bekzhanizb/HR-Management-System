@@ -4,7 +4,7 @@ import bekezhan.io.lab7.dto.UserDTO;
 import bekezhan.io.lab7.entity.User;
 
 import java.util.List;
-import java.util.Optional;
+
 
 public interface UserService {
     List<User> findAll();
